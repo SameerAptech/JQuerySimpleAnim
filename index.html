@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .active{
+            background:#98bf21;width:100%;
+        }
+
+        .slider{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="slider">
+
+        <img src="mountain-landscape-2031539_1920.jpg" style="display: none;">
+        <img src="the-road-815297_1920.jpg" style="display: none;">
+        <img src="yellowstone-national-park-1581879_1920.jpg" style="display: none;" alt="">
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script>
+
+// $('.container').hide();
+
+$(document).ready(function(){
+var i = 0;
+var Ref = $('.slider img');
+animate_loop = function animate_loop(){
+    
+    if(i % 2 == 0){
+      Ref  = $('.slider img:first');
+      $('.slider img:last').hide();
+      $('.slider img:first').show();
+    }
+      else{
+      Ref  = $('.slider img:last');
+      $('.slider img:first').hide();
+      $('.slider img:last').show();
+      }
+
+        $( Ref ).animate({
+            opacity: 0.1, 
+
+          }, 1000,function(){
+               $(Ref).animate({ opacity: 1},1000)
+                 ++i;
+                 animate_loop();
+        });    
+}
+
+animate_loop();
+
+});
+
+    </script>
+</body>
+</html>
